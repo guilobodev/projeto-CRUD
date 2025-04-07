@@ -18,12 +18,9 @@ Este projeto é um CRUD (Create, Read, Update, Delete) simples feito com HTML, C
 - CSS3
 - JavaScript (Vanilla JS)
 
-## 📦 Como executar o projeto
 
 1. Clone o repositório:
-## 📦 Como executar o projeto
-
-1. Clone o repositório:
+ ## 📦 Como executar o projeto
 
 ```bash
 git clone https://github.com/guilobodev/projeto-CRUD.git
