@@ -21,46 +21,13 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) para gerenciar
 ```plaintext
 projeto-CRUD/
 ├── css/
-│   ├── main.css
-│   ├── button.css
-│   ├── records.css
-│   └── modal.css
-├── [script.js](http://_vscodecontentref_/1)
-├── [index.html](http://_vscodecontentref_/2)
-└── [README.md](http://_vscodecontentref_/3)
-Aqui está um exemplo de um README.md para o seu projeto, seguindo o estilo do vídeo mencionado:
-
-```markdown
-# CRUD de Clientes
-
-Este é um projeto simples de CRUD (Create, Read, Update, Delete) para gerenciar o cadastro de clientes. Ele utiliza HTML, CSS e JavaScript puro para criar uma interface funcional e interativa.
-
-## 📋 Funcionalidades
-
-- **Cadastrar Cliente**: Adicione novos clientes ao sistema.
-- **Listar Clientes**: Visualize todos os clientes cadastrados em uma tabela.
-- **Editar Cliente**: Atualize as informações de um cliente existente.
-- **Excluir Cliente**: Remova clientes do sistema.
-
-## 🚀 Tecnologias Utilizadas
-
-- **HTML5**: Estrutura da aplicação.
-- **CSS3**: Estilização da interface.
-- **JavaScript**: Lógica do CRUD e manipulação do DOM.
-- **LocalStorage**: Armazenamento dos dados no navegador.
-
-## 📂 Estrutura do Projeto
-
-```plaintext
-projeto-CRUD/
-├── css/
-│   ├── main.css
-│   ├── button.css
-│   ├── records.css
-│   └── modal.css
-├── script.js
-├── index.html
-└── README.md
+│   ├── [main.css](https://github.com/guilobodev/projeto-CRUD/blob/main/css/main.css)
+│   ├── [button.css](https://github.com/guilobodev/projeto-CRUD/blob/main/css/button.css)
+│   ├── [records.css](https://github.com/guilobodev/projeto-CRUD/blob/main/css/records.css)
+│   └── [modal.css](https://github.com/guilobodev/projeto-CRUD/blob/main/css/modal.css)
+├── [script.js](https://github.com/guilobodev/projeto-CRUD/blob/main/script.js)
+├── [index.html](https://github.com/guilobodev/projeto-CRUD/blob/main/index.html)
+└── [README.md](https://github.com/guilobodev/projeto-CRUD/blob/main/README.md)
 ```
 
 ## 🛠️ Como Usar
@@ -100,4 +67,3 @@ Este projeto foi inspirado no vídeo [CRUD com JavaScript Puro](https://www.yout
 ---
 
 **Divirta-se codando! 🚀**
-```
