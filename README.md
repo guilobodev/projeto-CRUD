@@ -24,9 +24,9 @@ projeto-CRUD/
 │   ├── button.css
 │   ├── records.css
 │   └── modal.css
-├── [script.js](http://_vscodecontentref_/1)
-├── [index.html](http://_vscodecontentref_/2)
-└── [README.md](http://_vscodecontentref_/3)
+├── script.js
+├── index.html
+└── README.md
 ````
 
 🛠️ Como Usar
