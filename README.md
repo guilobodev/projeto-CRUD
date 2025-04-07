@@ -17,16 +17,17 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) para gerenciar
 - **LocalStorage**: Armazenamento dos dados no navegador.
 
 ## 📂 Estrutura do Projeto
-
+```plaintext
 projeto-CRUD/
 ├── css/
 │   ├── main.css
 │   ├── button.css
 │   ├── records.css
 │   └── modal.css
-├── [script.js]
-├── [index.html]
-└── [README.md]
+├── [script.js](http://_vscodecontentref_/1)
+├── [index.html](http://_vscodecontentref_/2)
+└── [README.md](http://_vscodecontentref_/3)
+````
 
 🛠️ Como Usar
 Clone o repositório:
