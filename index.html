@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/records.css">
     <link rel="stylesheet" href="css/modal.css">
     <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>CRUD</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
     </header>
     <main>
         <button type="button" class="button blue mobile" id="cadastrarCliente">Cadastrar Cliente</button>
-        <table class="records">
+        <table id="tableClient" class="records">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -31,7 +32,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Maria</td>
+                    <!-- <td>Maria</td>
                     <td>maria@gmail.com</td>
                     <td>(79) 97165-1111</td>
                     <td>Anapolis</td>
@@ -59,7 +60,7 @@
                         <button type="button" class="button green">editar</button>
                         <button type="button" class="button red">excluir</button>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="modal" id="modal">
@@ -68,15 +69,15 @@
                     <h2>Novo Cliente</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
-                <form class="modal-form">
-                    <input type="text" class="modal-field" placeholder="Nome do Cliente">
-                    <input type="email" class="modal-field" placeholder="e-mail do Cliente">
-                    <input type="text" class="modal-field" placeholder="Celular do Cliente">
-                    <input type="text" class="modal-field" placeholder="Cidade do Cliente">
+                <form class="modal-form" id="form"> 
+                    <input type="text" class="modal-field" placeholder="Nome do Cliente" required id="nome">
+                    <input type="email" class="modal-field" placeholder="e-mail do Cliente"  required id="email"> 
+                    <input type="text" class="modal-field" placeholder="Celular do Cliente" required id="celular">
+                    <input type="text" class="modal-field" placeholder="Cidade do Cliente" required id="cidade">
                 </form>
                 <footer class="modal-footer">
-                    <button class="button green">Salvar</button>
-                    <button class="button blue">Cancelar</button>
+                    <button class="button green" id="salvar">Salvar</button>
+                    <button class="button blue" id="cancelar">Cancelar</button>
                 </footer>
             </div>
         </div>
