@@ -7,6 +7,14 @@ const closeModal = () => {
   limparCampos();
 };
 
+function salvarEnter(event) {
+  if (event.key == 'Enter')
+  {
+    salvarCliente() 
+  }
+}
+
+
 //acessar o localStorage/Banco De Dados
 const getLocalStorage = () => {
   return JSON.parse(localStorage.getItem("db_cliente")) ?? []; //get  getLocalStorage fosse um array
@@ -17,20 +25,26 @@ const setLocalStorage = (dbCliente) => {
 // CREATE - READ - UPDATE - DELETE
 
 //Create
-function createCliente(cliente) {
+
+const createCliente = (cliente) => {
   try {
-    const db_clientes = getLocalStorage();
-    db_clientes.push(cliente);
-    setLocalStorage(db_clientes);
+    const db_clientes = getLocalStorage()
+    db_clientes.push(cliente)
+    setLocalStorage(db_clientes)
+    
   } catch (error) {
-    console.log("o erro foi " + error);
+    console.log('erro ta dando errado')
   }
+
 }
 
 //Read
-const readCliente = () => { 
-    return getLocalStorage()
-  }
+const readCliente = () => {
+  const db = getLocalStorage();
+
+  return Array.isArray(db) ? db : [];
+
+};
 
 //Update
 const updateCliente = (index, cliente) => {
@@ -46,7 +60,7 @@ const updateCliente = (index, cliente) => {
 //Delete
 const deleteCliente = (index) => {
   const dbCliente = getLocalStorage();
-  dbCliente.slice(index, 1);
+  dbCliente.splice(index, 1);
   setLocalStorage(dbCliente);
 };
 //interação com o usuario
@@ -70,15 +84,26 @@ const salvarCliente = () => {
       celular: document.querySelector("#celular").value,
       cidade: document.querySelector("#cidade").value,
     };
-    createCliente(cliente);
-    console.log("cadastrando clientes");
-    limparCampos();
-    updateTable();
-    closeModal();
+
+    const index = document.getElementById('nome').dataset.index
+    if (index == 'new'){
+      createCliente(cliente);
+      limparCampos();
+      updateTable();
+      closeModal();
+
+    }
+    else {
+      updateCliente(index,cliente)
+      updateTable()
+      closeModal()
+
+    }
+
   }
 };
 
-const criarLinha = (cliente) => {
+const criarLinha = (cliente,index) => {
   const novaLinha = document.createElement("tr");
   novaLinha.innerHTML = `
             <td>${cliente.nome}</td>
@@ -86,32 +111,63 @@ const criarLinha = (cliente) => {
             <td>${cliente.celular}</td>
             <td>${cliente.cidade}</td>
             <td>
-                <button type="button" class="button green">editar</button>
-                <button type="button" class="button red">excluir</button>
+                <button type="button" class="button green" id='editar-${index}'>editar</button>
+                <button type="button" class="button red" id='excluir-${index}'>excluir</button>
             </td>`;
 
-
-            document.querySelector('#tableClient>tbody').appendChild(novaLinha)
+  document.querySelector("#tableClient>tbody").appendChild(novaLinha);
 };
 
 const limparTabela = () => {
-    const linhas = document.querySelectorAll('#tableClient>tbody tr')
-    linhas.forEach((linha) => {
-        linha.parentNode.removeChild(linha)
-    })
-}
+  const linhas = document.querySelectorAll("#tableClient>tbody tr");
+  linhas.forEach((linha) => {
+    linha.parentNode.removeChild(linha);
+  });
+};
 
 const updateTable = () => {
   const dbClient = readCliente();
-  limparTabela(); 
+  limparTabela();
   dbClient.forEach(criarLinha);
 };
 
 
+const fillfields = (cliente) => {
+  document.querySelector('#nome').value = cliente.nome
+  document.querySelector('#email').value = cliente.email
+  document.querySelector('#celular').value = cliente.celular
+  document.querySelector('#cidade').value = cliente.cidade
+  document.getElementById('nome').dataset.index = cliente.index
+}
+
+const editClient = (index) => {
+  const cliente = readCliente()[index]
+  cliente.index = index
+  fillfields(cliente)
+  openModal()
+}
+
+const editDelete = (event) => {
+  if (event.target.type == 'button'){
+    const [action, index] = event.target.id.split('-')
+    if  (action == 'editar') {
+        editClient(index)
+
+    }
+    else {
+      console.log('deletando')
+    }
+    
+  }
+
+}
+
+window.addEventListener('load', updateTable)
 
 //eventos
-document
-  .querySelector("#cadastrarCliente")
-  .addEventListener("click", openModal);
+document.querySelector("#cadastrarCliente").addEventListener("click", openModal);
 document.querySelector("#modalClose").addEventListener("click", closeModal);
 document.querySelector("#salvar").addEventListener("click", salvarCliente);
+document.querySelector('#tableClient> tbody').addEventListener("click",editDelete)
+
+document.querySelector('#modal').addEventListener('keydown',salvarEnter)
