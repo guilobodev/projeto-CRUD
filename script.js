@@ -127,14 +127,27 @@ const editDelete = (event) => {
     if (action == "editar") {
       editClient(index);
     } else {
-      console.log("deletando");
+      let cliente = readCliente()[index];
+      const response = confirm(
+        `Deseja realmente excluir o cliente ${cliente.nome}? `
+      );
+      if (response == true) {
+        deleteCliente(index);
+        updateTable();
+        console.log(getLocalStorage);
+      }
     }
   }
 };
 window.addEventListener("load", updateTable);
 //eventos
-document.querySelector("#cadastrarCliente").addEventListener("click", openModal);
+document
+  .querySelector("#cadastrarCliente")
+  .addEventListener("click", openModal);
 document.querySelector("#modalClose").addEventListener("click", closeModal);
 document.querySelector("#salvar").addEventListener("click", salvarCliente);
-document.querySelector("#tableClient> tbody").addEventListener("click", editDelete);
+document
+  .querySelector("#tableClient> tbody")
+  .addEventListener("click", editDelete);
 document.querySelector("#modal").addEventListener("keydown", salvarEnter);
+document.querySelector('#cancelar').addEventListener('click',closeModal)
