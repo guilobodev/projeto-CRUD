@@ -7,7 +7,7 @@ Este projeto é um CRUD (Create, Read, Update, Delete) simples feito com HTML, C
 
 ## ✨ Funcionalidades
 
-- ✅ Adicionar novos registros (nome e idade)
+- ✅ Adicionar novos registros
 - ✅ Exibir registros em uma tabela
 - ✅ Editar registros existentes
 - ✅ Deletar registros da tabela
